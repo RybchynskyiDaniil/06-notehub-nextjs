@@ -1,4 +1,4 @@
-import type { Note, NoteTag } from "../src/types/note";
+import type { Note, NoteTag } from "@/types/note";
 import axios from "axios";
 const API_URL = "https://notehub-public.goit.study/api/notes";
 const NOTEHUB_TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN
@@ -46,3 +46,12 @@ export async function deleteNote(noteID :string) {
     });
     return deletedNote.data;
 }
+
+export const fetchNoteById = async (noteId: string) => {
+  const response = await axios.get(`${API_URL}/${noteId}`, {
+    headers: {
+      Authorization: `Bearer ${NOTEHUB_TOKEN}`,
+    },
+  });
+  return response.data;
+};

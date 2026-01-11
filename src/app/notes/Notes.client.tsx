@@ -47,7 +47,7 @@ export default function NotesClient() {
         }
       </header>
       {isLoading && <p>Loading...</p>}
-      {isError && <p>Error!</p>}
+      {isError && <p>Something went wrong.</p>}
       {isSuccess && <NoteList notes={data.notes} />}
 
       {isModalOpen && (
